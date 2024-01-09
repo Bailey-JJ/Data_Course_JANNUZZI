@@ -7,3 +7,5 @@ The course [*website*](https://gzahn.github.io/data-course/) gives a tentative o
 *All assignments will be turned in on Canvas as well as your personal GitHub repository.*
 
 You only need to clone this repository to your computer once. After cloning it, copy the Data/ Code_Examples/ Exercises/ and Readings/ directories into **your own** Data_Course_LASTNAME/ directory and then delete this whole repository. This will help avoid common mistakes that students make, confusing the two directories (mine..this one, and yours...Data_Course_LASTNAME)
+This README file contains information about my uploaded assignments
+This README file contains information about my uploaded assignments
