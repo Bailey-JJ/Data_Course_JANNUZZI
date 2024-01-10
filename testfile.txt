@@ -1,2 +1,1 @@
-Appending vs overwrite test
-this should add to previous text
+This should remove the previous 2 lines
