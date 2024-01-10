@@ -1,1 +1,2 @@
 Appending vs overwrite test
+this should add to previous text
