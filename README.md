@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Data Analysis Course - Utah Valley University
 
 This site serves as a repository for all class material.
@@ -19,4 +18,5 @@ yours...Data_Course_LASTNAME) This README file contains information
 about my uploaded assignments
 
 This is my 1st separate change to this README file
+
 4th change to document
