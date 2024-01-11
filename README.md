@@ -17,4 +17,5 @@ delete this whole repository. This will help avoid common mistakes that
 students make, confusing the two directories (mine..this one, and 
 yours...Data_Course_LASTNAME) This README file contains information 
 about my uploaded assignments
+
 This is my 1st separate change to this README file
