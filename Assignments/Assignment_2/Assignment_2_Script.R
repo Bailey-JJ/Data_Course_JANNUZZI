@@ -22,4 +22,9 @@ for(i in bfiles){
 print(readLines(i, n = 1))
 }
 
-#Task 10:
+#Task 10: Do the same thing for all files that end in “.csv”
+allcsv <- list.files(path = "Data", pattern = ".csv", recursive = TRUE, full.names = TRUE)
+
+for(i in allcsv){
+print(readLines(i, n = 1))
+}
