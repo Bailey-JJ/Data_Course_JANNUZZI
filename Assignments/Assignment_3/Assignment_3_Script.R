@@ -32,7 +32,7 @@ vector1 + 5
 vector2 / 2
 vector1*vector2
 
-vector3 + 1 # can't add 1 to "a"
+#vector3 + 1 # can't add 1 to "a"
 
 
 # Logical expressions (pay attention to these...they are used ALL THE TIME)
