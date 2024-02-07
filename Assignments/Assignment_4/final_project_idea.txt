@@ -1,0 +1,7 @@
+My idea for the final project is to track meteor events and making them into a map marking locations of impact, along with other data such as size, mass, compounds (if available). I also have a separate dataset on specifically bolides, tracking their impact energy, geolocation, brightness, date of peak brightness, and velocity. I would like to learn about the frequency of meteors by year, location frequency, possibly correlation with specific meteor showers, and comparing bolide brightness to velocity and impact energy.
+
+Taking data from NASA meteorite landing dataset to build the map and the additional analysis of other observed variables. I also possibly plan on using a separate dataset on astrological events like meteor showers, to see any correlation with number of landings, and locations of landings.
+
+I plan on using data from NASA and the IAU Meteor Data Center.
+
+
