@@ -45,13 +45,13 @@ dat %>%
   labs(color = "Type") +
   ggtitle("Just Dilution 0.1")
 
-just_0.1
-
 ggsave("just_dilution_0.1.jpg",
        plot = just_0.1,
        width = 6.29, height = 2.94,
        units = "in",
        dpi = 500)
+
+just_0.1
 
 
 # Generates an animated plot that matches this one (absorbance values are mean of all 3 replicates for each group): ####
