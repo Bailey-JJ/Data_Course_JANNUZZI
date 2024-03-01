@@ -112,7 +112,7 @@ unicef1 %>%
 
 mod3_predict <- predict(mod3, data.frame(Year = 2020, Continent = "Americas", CountryName = "Ecuador"))
 
-mod3_residual <- 13 + mod3_predict
+mod3_residual <- 13 - mod3_predict
 mod3_residual
 
 mod4 <- glm(data = unicef1, formula = U5MR ~ Year * Continent + CountryName)
