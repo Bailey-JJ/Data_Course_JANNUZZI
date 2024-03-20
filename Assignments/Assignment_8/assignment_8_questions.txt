@@ -1,0 +1,26 @@
+# Are any of your predicted response values from your best model scientifically meaningless? Explain.
+
+predict(mod4, new_mushroom)
+
+  # all the values from the best model (mod4) have some scientific meaning, there are no 
+  # impossible values and all response values overlap areas where the Actual Model
+  # has points plotted as well, meaning they have at least some scientific meaning.
+
+
+# In your plots, did you find any non-linear relationships? Do a bit of research online and give a link to at least one resource explaining how to deal with modeling non-linear relationships in R.
+  # Yes, some did not have linear relationships.
+  # https://www.r-bloggers.com/2023/11/quadratic-regression-in-r-unveiling-non-linear-relationships/
+
+
+# Write the code you would use to model the data found in “/Data/non_linear_relationship.csv” with a linear model (there are a few ways of doing this)
+
+nonlinear <- read.csv("./non_linear_relationship.csv")
+
+summary(nonlinear)
+
+nonlinear %>% 
+  ggplot(aes(x = predictor, y = response)) +
+  geom_point() +
+  stat_smooth(method = "nls", formula = "y ~ (a*x^b)", method.args = list(start = c(a = 1, b = 1)), se = FALSE)
+
+  
