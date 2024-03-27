@@ -1,0 +1,109 @@
+---
+title: "Assignment 9"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Here are the packages used in this report:
+
+```{r Loaded Packages, echo=TRUE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(easystats)
+library(patchwork)
+library(GGally)
+
+```
+
+#### **Data Exploration**
+
+To explore this data I created 5 different models, comparing different relationships between variables, and their impact on admission.
+
+```{r Models, echo=TRUE, message=FALSE, warning=FALSE}
+dat <- read_csv("./GradSchool_Admissions.csv")
+
+mod <- 
+glm(data = dat,
+    formula = as.logical(admit) ~ gpa * rank,
+    family = 'binomial')
+
+dat$pred <- predict(mod, dat, type = 'response')
+
+dat %>% 
+  ggplot(aes(x = gpa, y = pred, color = factor(rank))) +
+  geom_point() +
+  geom_smooth(alpha = 0.25) +
+  labs(x = "GPA", y = "Admission Prediction") +
+  guides(color = guide_legend(title = "Rank"))
+
+mod2 <- 
+  glm(data = dat,
+      formula = as.logical(admit) ~ (gpa + gre) * rank,
+      family = 'binomial')
+
+dat$pred_mod2 <- predict(mod2, dat, type = 'response')
+
+dat %>% 
+  ggplot(aes(x = gre, y = pred_mod2, color = factor(rank))) +
+  geom_point() +
+  geom_smooth(alpha = 0.25) +
+  labs(x = "GRE", y = "Admission Prediction") +
+  guides(color = guide_legend(title = "Rank"))
+
+mod3 <- 
+  glm(data = dat,
+      formula = as.logical(admit) ~ gpa * gre * rank,
+      family = 'binomial')
+
+dat$pred_mod3 <- predict(mod3, dat, type = 'response')
+
+dat %>% 
+  ggplot(aes(x = gre, y = pred_mod3, color = factor(rank))) +
+  geom_point() +
+  geom_smooth(alpha = 0.25) +
+  labs(x = "GRE", y = "Admission Prediction") +
+  guides(color = guide_legend(title = "Rank"))
+
+mod4 <- 
+  glm(data = dat,
+      formula = as.logical(admit) ~ (gpa + gre + rank),
+      family = 'binomial')
+
+dat$pred_mod4 <- predict(mod4, dat, type = 'response')
+
+dat %>% 
+  ggplot(aes(x = gre, y = pred_mod4, color = factor(rank))) +
+  geom_point() +
+  geom_smooth(alpha = 0.25) +
+  labs(x = "GRE", y = "Admission Prediction") +
+  guides(color = guide_legend(title = "Rank"))
+
+
+mod5 <- 
+  glm(data = dat,
+      formula = as.logical(admit) ~ gre * rank,
+      family = 'binomial')
+
+dat$pred_mod5 <- predict(mod5, dat, type = 'response')
+
+dat %>% 
+  ggplot(aes(x = gre, y = pred_mod5, color = factor(rank))) +
+  geom_point() +
+  geom_smooth(alpha = 0.25) +
+  labs(x = "GRE", y = "Admission Prediction") +
+  guides(color = guide_legend(title = "Rank"))
+```
+
+After plotting these 5 different models, I compared their performances to determine the best model.
+
+```{r Model Comparison, echo=TRUE, message=FALSE, warning=FALSE}
+compare_performance(mod, mod2, mod3, mod4, mod5)
+```
+
+Model 3 has the lowest RMSE score, with model 4 having the second lowest. Model 4 has the lowest AIC score, with model 3 having the second lowest. Due to model 4 having the lowest AIC, AICc, and BIC values, this will be determined as the best model.
+
+#### **Conclusion**
+
+Based on the plots, a student's undergraduate school's rank is likely the biggest factor in graduate school admission. This is seen in plots where having a higher GRE and/or GPA score but going to a lower rank school, gave a student a similar or lesser chance of admission than someone with a lower GRE and/or GPA but who attended a higher ranking university.
